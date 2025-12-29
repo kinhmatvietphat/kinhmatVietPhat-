@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Thêm sản phẩm</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>📦 Admin: Thêm sản phẩm</h1>
+
+<input type="text" id="name" placeholder="Tên sản phẩm"><br>
+<input type="text" id="price" placeholder="Giá"><br>
+<textarea id="desc" placeholder="Mô tả"></textarea><br>
+<input type="file" id="image"><br><br>
+
+<button onclick="createProduct()">Tạo QR</button>
+
+<h2>Mã QR</h2>
+<div id="qrcode"></div>
+
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-storage-compat.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcodejs/qrcode.min.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>
