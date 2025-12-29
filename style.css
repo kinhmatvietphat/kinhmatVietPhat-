@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+input, textarea {
+  width: 250px;
+  margin: 5px;
+}
+#qrcode {
+  margin-top: 10px;
+}
