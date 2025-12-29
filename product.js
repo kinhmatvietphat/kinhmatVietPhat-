@@ -1,10 +1,10 @@
 const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID"
+  apiKey: "AIzaSyCipoxh0ggvP7J6EDJryhy1BkZkigPF00c",
+  authDomain: "scan-bb6c7.firebaseapp.com",
+  projectId: "scan-bb6c7",
+  storageBucket:"scan-bb6c7.firebasestorage.app", 
+  messagingSenderId:"767463182750",
+  appId: "1:767463182750:web:d4448fb605fa578c29868f",
 };
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
