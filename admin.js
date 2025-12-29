@@ -3,14 +3,14 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.0/firebas
 import { getFirestore, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-firestore.js";
 import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.7.0/firebase-storage.js";
 
-// ====== THAY BẰNG FIREBASE CONFIG CỦA BẠN ======
+// ===== THAY BẰNG FIREBASE CONFIG CỦA BẠN =====
 const firebaseConfig = {
   apiKey: "AIzaSyCipoxh0ggvP7J6EDJryhy1BkZkigPF00c",
   authDomain: "scan-bb6c7.firebaseapp.com",
   projectId: "scan-bb6c7",
   storageBucket: "scan-bb6c7.firebasestorage.app",
   messagingSenderId: "767463182750",
-  appId: ""1:767463182750:web:d4448fb605fa578c29868f",
+  appId: "1:767463182750:web:d4448fb605fa578c29868f",
 };
 
 // Khởi tạo Firebase
@@ -22,25 +22,27 @@ const storage = getStorage(app);
 export async function saveScan(code, type) {
   try {
     const docRef = await addDoc(collection(db, "scans"), {
-      code: code,
-      type: type,
+      code,
+      type,
       time: new Date()
     });
-    console.log("Scan saved with ID: ", docRef.id);
+    console.log("Scan saved:", docRef.id);
   } catch (e) {
-    console.error("Error adding document: ", e);
+    console.error("Firestore error:", e);
   }
 }
 
-// ================= STORAGE (upload file) ===================
+// ================= STORAGE ===================
 export async function uploadFile(file, folder = "uploads") {
   try {
     const storageRef = ref(storage, `${folder}/${file.name}_${Date.now()}`);
     const snapshot = await uploadBytes(storageRef, file);
     const url = await getDownloadURL(snapshot.ref);
-    console.log("File available at", url);
+    console.log("File uploaded:", url);
     return url;
   } catch (e) {
-    console.error("Upload failed:", e);
+    console.error("Storage error:", e);
   }
 }
+
+export { db };
